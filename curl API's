@@ -1,0 +1,22 @@
+
+# Creating Universe
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data "{\"universe\":{\"name\":\"first_universe\"}}" \
+  http://localhost:3002/universes.json
+
+# Creating Family
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data "{\"family\":{\"name\":\"first_family\"}}" \
+  http://localhost:3002/families.json
+
+# Creating Person
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data "{\"person\":{\"name\":\"first_person\",\"power\":true,\"universe_id\":1,\"family_id\":1}}" \
+  http://localhost:3002/people.json
+ 
+
+# 
+curl http://localhost:3002/families/1/have_same_power_across_universes.json

@@ -1,5 +1,6 @@
 class UniversesController < ApplicationController
   before_action :set_universe, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   # GET /universes
   # GET /universes.json
@@ -12,15 +13,6 @@ class UniversesController < ApplicationController
   def show
   end
 
-  # GET /universes/new
-  def new
-    @universe = Universe.new
-  end
-
-  # GET /universes/1/edit
-  def edit
-  end
-
   # POST /universes
   # POST /universes.json
   def create
@@ -28,10 +20,8 @@ class UniversesController < ApplicationController
 
     respond_to do |format|
       if @universe.save
-        format.html { redirect_to @universe, notice: 'Universe was successfully created.' }
         format.json { render :show, status: :created, location: @universe }
       else
-        format.html { render :new }
         format.json { render json: @universe.errors, status: :unprocessable_entity }
       end
     end
@@ -39,27 +29,27 @@ class UniversesController < ApplicationController
 
   # PATCH/PUT /universes/1
   # PATCH/PUT /universes/1.json
-  def update
-    respond_to do |format|
-      if @universe.update(universe_params)
-        format.html { redirect_to @universe, notice: 'Universe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @universe }
-      else
-        format.html { render :edit }
-        format.json { render json: @universe.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @universe.update(universe_params)
+  #       format.html { redirect_to @universe, notice: 'Universe was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @universe }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @universe.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /universes/1
   # DELETE /universes/1.json
-  def destroy
-    @universe.destroy
-    respond_to do |format|
-      format.html { redirect_to universes_url, notice: 'Universe was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @universe.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to universes_url, notice: 'Universe was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

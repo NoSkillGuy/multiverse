@@ -15,10 +15,10 @@ end
 end
 
 20.times do |person_id|
-	Person.create(name: "person_#{person_id}", universe_id: rand(1..10), family_id: rand(2..10))
+	Person.create(name: "person_#{person_id}", universe_id: rand(1..10), family_id: rand(2..10), power: [true,false].sample)
 end
 
 10.times do |person_id|
-	Person.create(name: "personn_#{person_id}", universe_id: person_id+1, family_id: 1)
+	Person.create(name: "personn_#{person_id}", universe_id: person_id+1, family_id: 1, power: [true,false].sample)
 end
 
