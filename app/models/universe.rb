@@ -1,3 +1,4 @@
 class Universe < ApplicationRecord
-	has_and_belongs_to :families
+	has_many :people
+	has_many :families, through: :people
 end

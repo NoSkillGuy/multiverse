@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  universe_id: 1
+  family_id: 1
+  name: MyString
   power: false
 
 two:
+  universe_id: 1
+  family_id: 1
+  name: MyString
   power: false

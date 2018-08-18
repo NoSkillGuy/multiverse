@@ -14,7 +14,10 @@ class PeopleTest < ApplicationSystemTestCase
     visit people_url
     click_on "New Person"
 
+    fill_in "Family", with: @person.family_id
+    fill_in "Name", with: @person.name
     fill_in "Power", with: @person.power
+    fill_in "Universe", with: @person.universe_id
     click_on "Create Person"
 
     assert_text "Person was successfully created"
@@ -25,7 +28,10 @@ class PeopleTest < ApplicationSystemTestCase
     visit people_url
     click_on "Edit", match: :first
 
+    fill_in "Family", with: @person.family_id
+    fill_in "Name", with: @person.name
     fill_in "Power", with: @person.power
+    fill_in "Universe", with: @person.universe_id
     click_on "Update Person"
 
     assert_text "Person was successfully updated"

@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>Universe</th>
+      <th>Family</th>
+      <th>Name</th>
       <th>Power</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +16,9 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
+        <td><%= person.universe_id %></td>
+        <td><%= person.family_id %></td>
+        <td><%= person.name %></td>
         <td><%= person.power %></td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>

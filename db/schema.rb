@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_18_100523) do
+ActiveRecord::Schema.define(version: 2018_08_18_104922) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -19,22 +19,19 @@ ActiveRecord::Schema.define(version: 2018_08_18_100523) do
   end
 
   create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "universe_id"
+    t.integer "family_id"
     t.string "name"
     t.boolean "power"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "family_id"
+    t.index ["universe_id", "family_id"], name: "index_people_on_universe_id_and_family_id"
   end
 
   create_table "universes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "universes_families", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "universe_id"
-    t.integer "family_id"
   end
 
 end
